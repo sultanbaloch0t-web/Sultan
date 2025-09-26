@@ -1,0 +1,21 @@
+def merge_sort(arr):
+    if len(arr) <=1:
+        return arr
+    mid = len(arr)//2
+    left=merge_sort(arr[:mid])
+    right=merge_sort(arr[mid:])
+    i=j=0
+    sort=[]
+    while i < len(left) and j < len(right):
+        if left[i] <right[j]:
+            sort.append(left[i])
+            i+=1
+        else:
+            sort.append(right[j])
+            j+=1
+    sort.extend(left[i:])
+    sort.extend(right[j:])
+    return sorted
+lst=[33,55,1,56,57,22,76,34,99,0,34]
+sorted=merge_sort(lst)
+print("The sorted list is: ",sorted)
